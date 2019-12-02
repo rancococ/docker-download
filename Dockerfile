@@ -12,9 +12,8 @@ ARG WRAPPER_SINGLE_URL=https://github.com/rancococ/wrapper/archive/single-${WRAP
 
 # download wrapper-tomcat,wrapper-single
 RUN mkdir -p /data/app && \
-    mkdir -p /tmp && \
-    wget -c -O /tmp/wrapper-tomcat-${WRAPPER_TOMCAT_VERSION}.tar.gz --no-check-certificate ${WRAPPER_TOMCAT_URL} && \
-    wget -c -O /tmp/wrapper-single-${WRAPPER_SINGLE_VERSION}.tar.gz --no-check-certificate ${WRAPPER_SINGLE_URL}
+    wget -c -O /data/app/wrapper-tomcat-${WRAPPER_TOMCAT_VERSION}.tar.gz --no-check-certificate ${WRAPPER_TOMCAT_URL} && \
+    wget -c -O /data/app/wrapper-single-${WRAPPER_SINGLE_VERSION}.tar.gz --no-check-certificate ${WRAPPER_SINGLE_URL}
 
 # set work home
 WORKDIR /data/app
