@@ -12,13 +12,19 @@ ARG WRAPPER_SINGLE_URL=https://github.com/rancococ/wrapper/archive/single-${WRAP
 
 ARG OPENJDK11_URL=https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.6%2B10/OpenJDK11U-jdk_x64_mac_hotspot_11.0.6_10.pkg
 
+ARG VAULT_LINUX_URL=https://releases.hashicorp.com/vault/1.5.0/vault_1.5.0_linux_amd64.zip
+ARG VAULT_WINDOWS_URL=https://releases.hashicorp.com/vault/1.5.0/vault_1.5.0_windows_amd64.zip
+
 #wget -c -O /data/app/wrapper-tomcat-${WRAPPER_TOMCAT_VERSION}.tar.gz --no-check-certificate ${WRAPPER_TOMCAT_URL} && \
 #wget -c -O /data/app/wrapper-single-${WRAPPER_SINGLE_VERSION}.tar.gz --no-check-certificate ${WRAPPER_SINGLE_URL}
 
+#wget -c -O /data/app/vault_1.5.0_linux_amd64.zip --no-check-certificate ${VAULT_LINUX_URL} && \
+#wget -c -O /data/app/vault_1.5.0_windows_amd64.zip --no-check-certificate ${VAULT_WINDOWS_URL}
+
 # download wrapper-tomcat,wrapper-single
 RUN mkdir -p /data/app && \
-    wget -c -O /data/app/wrapper-tomcat-${WRAPPER_TOMCAT_VERSION}.tar.gz --no-check-certificate ${WRAPPER_TOMCAT_URL} && \
-    wget -c -O /data/app/wrapper-single-${WRAPPER_SINGLE_VERSION}.tar.gz --no-check-certificate ${WRAPPER_SINGLE_URL}
+    wget -c -O /data/app/vault_1.5.0_linux_amd64.zip --no-check-certificate ${VAULT_LINUX_URL} && \
+    wget -c -O /data/app/vault_1.5.0_windows_amd64.zip --no-check-certificate ${VAULT_WINDOWS_URL}
 
 # set work home
 WORKDIR /data/app
